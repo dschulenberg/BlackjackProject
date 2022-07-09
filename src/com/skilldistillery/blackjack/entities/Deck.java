@@ -1,48 +1,48 @@
 package com.skilldistillery.blackjack.entities;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-
-
+import java.util.*;
 
 public class Deck {
 	private List<Card> deck;
-	
+
 	public Deck() {
-		this.deck =createDeck();
+		this.deck = createDeck();
 	}
+
 	public List<Card> createDeck() {
 		List<Card> deck = new ArrayList<>();
-		for(Suit s : Suit.values()) {
-	      for(Rank r : Rank.values()) {
-	        deck.add(new Card(r, s));
-	      }
-	    }
-	    return deck;
+		for (Suit s : Suit.values()) {
+			for (Rank r : Rank.values()) {
+				deck.add(new Card(r, s));
+			}
+		}
+		return deck;
 	}
-	
-	public int cardsLeftInDeck () {
+
+	public int cardsLeftInDeck() {
 		int cardsLeft = 0;
-		cardsLeft =deck.size();
+		cardsLeft = deck.size();
 		return cardsLeft;
 	}
-	public void dealCard (int howMany) {
-		while(howMany>0) {
+
+	public Card dealCard() {
 		Card dealtCard;
-		dealtCard =deck.remove(0);
-		howMany--;
-		System.out.println(dealtCard.toString() + dealtCard.getValue());
-		}
-		
+		dealtCard = deck.remove(0);
+
+		return dealtCard;
 	}
-//	public Card dealCard (Hand hand) {
-//		
-//		return dealCard();
-//		
-//	}
-	public void shuffle () {
+
+	public Card dealtCard() {
+
+		return dealCard();
+
+	}
+
+	public void shuffle() {
 		Collections.shuffle(deck);
+	}
+
+	public int size() {
+		return 0;
 	}
 }
