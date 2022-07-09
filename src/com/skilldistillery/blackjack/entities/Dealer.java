@@ -46,9 +46,6 @@ public class Dealer {
 		dealerTurn();
 		dHand.addCard(newCard);
 		showDealer();
-		if (turn <= 2) {
-			dHand.isBlackJack();
-		}
 		dHand.isBust();
 	}
 
