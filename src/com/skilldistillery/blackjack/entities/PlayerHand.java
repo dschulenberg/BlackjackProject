@@ -12,8 +12,7 @@ public class PlayerHand extends BlackJackHand {
 	@Override
 	public boolean isBlackJack() {
 		if (getHandValue() == 21) {
-			System.out.println("Player hit a BlackJack! Player wins");
-			System.exit(0);
+			return true;
 		}
 		return false;
 	}

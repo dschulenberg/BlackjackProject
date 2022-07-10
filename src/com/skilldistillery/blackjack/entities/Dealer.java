@@ -34,12 +34,9 @@ public class Dealer {
 		receieveCard(deck.dealtCard());
 	}
 
-	public void checkDealerHand() {
-		if (turn == 3) {
-			dHand.isBlackJack();
-		}
-		dHand.isBust();
-
+	
+	public boolean checkDealerBJ() {
+		return dHand.isBlackJack();
 	}
 
 	public void receieveCard(Card newCard) {
@@ -65,7 +62,6 @@ public class Dealer {
 		}
 		if (turn > 2) {
 			showCard();
-			checkDealerHand();
 		}
 		turn++;
 

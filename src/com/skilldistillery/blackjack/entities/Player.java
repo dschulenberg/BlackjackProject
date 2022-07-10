@@ -14,11 +14,12 @@ public class Player {
 		playerTurn();
 		pHand.addCard(newCard);
 		showCard();
-		if (turn <= 2) {
-			pHand.isBlackJack();
-		}
 		pHand.isBust();
 		turn++;
+	}
+	
+	public boolean checkPlayerBJ() {
+		return pHand.isBlackJack();
 	}
 
 	public int playerMove() {

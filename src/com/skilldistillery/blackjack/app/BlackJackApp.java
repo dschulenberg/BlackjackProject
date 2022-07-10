@@ -10,13 +10,14 @@ public class BlackJackApp {
 	public static void main(String[] args) {
 		BlackJackApp app = new BlackJackApp();
 		app.play();
-
+		
 	}
 
 	public void play() {
 		gameSetup();
 		determinePlayerMove();
 		dealer.dealerTurn();
+		beforeDealerBJ();
 		determineDealerMove();
 		determineWinner();
 	}
@@ -27,7 +28,20 @@ public class BlackJackApp {
 		dealer.dealCard();
 		dealer.dealCard(player);
 		dealer.dealCard();
+		checkGameSetupBJ();
 
+	}
+	public void checkGameSetupBJ() {
+		if(player.checkPlayerBJ() && dealer.checkDealerBJ()) {
+			System.out.println("Dealer and Player have a BlackJack. Both win.");
+			System.exit(0);
+		}else if(player.checkPlayerBJ()) {
+			System.out.println("Player has a BlackJack. Player wins!");
+			System.out.println();
+			System.out.println("Dealer hand was: ");
+			dealer.showDealer();
+			System.exit(0);
+		}
 	}
 
 	public void playerTurn() {
@@ -36,6 +50,14 @@ public class BlackJackApp {
 
 	public void dealerTurn() {
 		System.out.println("Dealers Turn");
+	}
+	public void beforeDealerBJ() {
+		if(dealer.checkDealerBJ()) {
+			dealer.showDealer();
+			System.out.println("Dealer has a BlackJack. Dealer wins!");
+			System.exit(0);		
+		}
+		
 	}
 
 	public void determineDealerMove() {
